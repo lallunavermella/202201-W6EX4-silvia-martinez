@@ -1,7 +1,11 @@
 require("dotenv").config();
 const express = require("express");
-const debug = require("debug")("my-express:root");
+const app = express();
+const debug = require("debug")("server:root");
 const initializeServer = require("./server/index");
+const morgan = require("morgan");
+
+app.use(express.json());
 
 const port = process.env.SERVER_PORT || 4000;
 
